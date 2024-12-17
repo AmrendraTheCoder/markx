@@ -15,7 +15,7 @@ function Items() {
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 512 512"
-              class="icon icon-ultra-lg"
+              className="icon icon-ultra-lg"
             >
               <path
                 fill="#FF693B"
@@ -52,7 +52,7 @@ function Items() {
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 512 512"
-              class="icon icon-ultra-lg"
+              className="icon icon-ultra-lg"
             >
               <path
                 fill="#FF693B"
@@ -82,7 +82,7 @@ function Items() {
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 512 512"
-              class="icon icon-ultra-lg"
+              className="icon icon-ultra-lg"
             >
               <path
                 fill="#FFC200"
@@ -119,7 +119,7 @@ function Items() {
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 512 512"
-              class="icon icon-ultra-lg"
+              className="icon icon-ultra-lg"
             >
               <path
                 fill="#10AAFF"
