@@ -5,7 +5,7 @@ import React from "react";
 
 function Items({ cardOptions}) {
 
-  const {title, description, icon, link, linkTitle, enabled} = cardOptions;
+  // const {title, description, icon, link, linkTitle, enabled} = cardOptions;
 
   return (
     <div>
