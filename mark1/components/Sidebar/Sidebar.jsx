@@ -16,9 +16,15 @@ import Subscription from "./Subscription";
 
 const Sidebar = () => {
   const inventoryLinks = [
-    { title: "Items", href: "/inventory//inventory/items" },
-    { title: "Items Group", href: "/inventory//inventory/itemgroups" },
-    { title: "Inventory Adjustments", href: "/inventory/inventory/adjustments" },
+    { title: "Items", href: "/inventory/inventory/items/new" },
+    { title: "Adjustments", href: "/inventory/inventory/adjustments/new" },
+    { title: "Brands", href: "/inventory/inventory/brands/new" },
+    {
+      title: "Categories",
+      href: "/inventory/inventory/categories/new",
+    },
+    { title: "Units", href: "/inventory/inventory/units/new" },
+    { title: "Warehouse", href: "/inventory/inventory/warehouse/new" },
   ];
 
   const salesLinks = [

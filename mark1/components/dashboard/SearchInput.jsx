@@ -4,7 +4,7 @@ import styles from "./App.module.css";
 
 function SearchInput() {
   return (
-    <from>
+    <form>
       <label htmlFor="simple-search" className="sr-only">
         Search
       </label>
@@ -20,7 +20,7 @@ function SearchInput() {
           required
         />
       </div>
-    </from>
+    </form>
   );
 }
 

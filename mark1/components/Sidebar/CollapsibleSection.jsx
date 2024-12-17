@@ -27,7 +27,7 @@ const CollapsibleSection = ({
       >
         <div>
           <Link
-            href={`/inventory/inventory/${firstLinkTitle.toLowerCase()}`}
+            href={`/inventory/inventory/items`}
             className="flex items-center space-x-2"
           >
             <IconComponent className="w-4 h-4" />
