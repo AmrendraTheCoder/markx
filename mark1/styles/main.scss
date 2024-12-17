@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.header-bg{
+    background-image: url('../public/homeNavHeader.svg');
+    background-size: contain;
+}
+
+.dashboard-banner {
+    background-image: url('../public/ShoppingCart.png');
+    background-size: contain;
+}
+
+.item-card-bg {
+    background-image: url('../public/items_img.png');
+    background-size: contain;
+}
+
+.item-group-bg {
+    background-image: url('../public/item_gridd.png');
+    background-size: contain;
+}
+
+@layer base {
+  :root {
+        --radius: 0.5rem;
+    }
+}
