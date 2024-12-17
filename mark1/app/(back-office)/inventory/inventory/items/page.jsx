@@ -169,7 +169,10 @@ function Items() {
   ];
   return (
     <div>
+      <div className="relative">
+
       <FixedHeader />
+      </div>
       <div className="grid grid-col-1 lg:grid-cols-2 px-16 py-6 gap-x-8 gap-y-8">
         {options.map((card, i) => {
           return <OptionCard optionData={card} key={i} />;
