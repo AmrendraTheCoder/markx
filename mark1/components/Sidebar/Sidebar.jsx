@@ -60,7 +60,9 @@ const Sidebar = () => {
   const handleItemClick = (title) => {
     setActive((prevState) => ({
       ...prevState,
-      selectedItem: title,
+      selectedItem: prevState.selectedItem === title ? "" : title, // Toggle selection
+      inventory: true, // Keep the section open
+      activeLink: "", // Reset static link selection
     }));
   };
 

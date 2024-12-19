@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Link from "next/link";
 import { ChevronDown, ChevronRight, PlusCircle } from "lucide-react";
 
@@ -13,8 +13,8 @@ const CollapsibleSection = ({
   selectedItem,
 }) => {
   const isOpen = active[sectionName];
-
-  const firstLinkTitle = links.length > 0 ? links[0].title : "";
+  // Check if any child link is selected within this section
+  const isChildSelected = links.some((link) => link.title === selectedItem);
 
   return (
     <div>
@@ -23,16 +23,23 @@ const CollapsibleSection = ({
         onClick={() => onToggle(sectionName)}
         className={`flex items-center justify-between w-full p-3 rounded-md hover:bg-blue-600 ${
           isOpen ? "bg-blue-800" : "bg-slate-800"
-        } text-slate-50`}
+        } ${isChildSelected ? "bg-blue-600" : ""} text-slate-50`}
       >
         <div>
-          <Link
-            href={`/inventory/inventory/items`}
-            className="flex items-center space-x-2"
-          >
-            <IconComponent className="w-4 h-4" />
-            <span>{title}</span>
-          </Link>
+          <div className="flex items-center space-x-2">
+            <IconComponent
+              className={`w-4 h-4 ${
+                isChildSelected ? "text-pink-400" : "text-slate-50"
+              }`}
+            />
+            <span
+              className={`${
+                isChildSelected ? "text-pink-400" : "text-slate-50"
+              }`}
+            >
+              {title}
+            </span>
+          </div>
         </div>
         {isOpen ? <ChevronDown /> : <ChevronRight />}
       </button>
