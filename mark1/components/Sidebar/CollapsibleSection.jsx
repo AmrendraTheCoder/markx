@@ -13,51 +13,59 @@ const CollapsibleSection = ({
   selectedItem,
 }) => {
   const isOpen = active[sectionName];
-  // Check if any child link is selected within this section
   const isChildSelected = links.some((link) => link.title === selectedItem);
 
   return (
     <div>
-      {/* Trigger */}
+      {/* Trigger Section */}
       <button
         onClick={() => onToggle(sectionName)}
-        className={`flex items-center justify-between w-full p-3 rounded-md hover:bg-blue-600 ${
+        className={`flex items-center justify-between w-full p-3 rounded-md transition-colors duration-200 ${
           isOpen ? "bg-blue-800" : "bg-slate-800"
-        } ${isChildSelected ? "bg-blue-600" : ""} text-slate-50`}
+        } ${
+          isChildSelected ? "bg-blue-600" : "hover:bg-blue-600"
+        } text-slate-50`}
       >
-        <div>
-          <div className="flex items-center space-x-2">
-            <IconComponent
-              className={`w-4 h-4 ${
-                isChildSelected ? "text-pink-400" : "text-slate-50"
-              }`}
-            />
-            <span
-              className={`${
-                isChildSelected ? "text-pink-400" : "text-slate-50"
-              }`}
-            >
-              {title}
-            </span>
-          </div>
+        <div className="flex items-center space-x-2">
+          <IconComponent
+            className={`w-4 h-4 ${
+              isChildSelected ? "text-white" : "text-slate-50"
+            }`}
+          />
+          <Link
+            href={`/inventory/inventory/items`}
+            className={`flex items-center ${
+              isChildSelected ? "text-white" : "text-slate-50"
+            }`}
+          >
+            <span>{title}</span>
+          </Link>
         </div>
         {isOpen ? <ChevronDown /> : <ChevronRight />}
       </button>
 
-      {/* Content */}
+      {/* Dropdown Content */}
       {isOpen && (
-        <div className="pl mt-1 space-y-2">
+        <div className="mt-2 space-y-2">
           {links.map((link, index) => (
             <Link
               href={link.href}
               key={index}
               onClick={() => onItemClick(link.title)}
-              className={`flex items-center justify-between pl-8 pr-4 py-2.5 mt-2 rounded-md hover:bg-blue-500 ${
-                selectedItem === link.title ? "bg-blue-600" : ""
+              className={`flex items-center justify-between pl-8 pr-4 py-2 rounded-md transition-colors duration-200 ${
+                selectedItem === link.title
+                  ? "bg-blue-600"
+                  : "hover:bg-blue-500"
               }`}
             >
               <span className="text-sm">{link.title}</span>
-              <PlusCircle className="w-4 h-4" />
+              <PlusCircle
+                className={`w-4 h-4 ${
+                  selectedItem === link.title
+                    ? "text-blue-400"
+                    : "text-slate-50"
+                }`}
+              />
             </Link>
           ))}
         </div>

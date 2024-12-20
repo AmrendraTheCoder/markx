@@ -16,15 +16,15 @@ import Subscription from "./Subscription";
 
 const Sidebar = () => {
   const inventoryLinks = [
-    { title: "Items", href: "/inventory/inventory/items/new" },
-    { title: "Adjustments", href: "/inventory/inventory/adjustments/new" },
-    { title: "Brands", href: "/inventory/inventory/brands/new" },
+    { title: "Items", href: "/inventory/inventory/" },
+    { title: "Adjustments", href: "/inventory/inventory/" },
+    { title: "Brands", href: "/inventory/inventory/" },
     {
       title: "Categories",
-      href: "/inventory/inventory/categories/new",
+      href: "/inventory/inventory/",
     },
-    { title: "Units", href: "/inventory/inventory/units/new" },
-    { title: "Warehouse", href: "/inventory/inventory/warehouse/new" },
+    { title: "Units", href: "/inventory/inventory/" },
+    { title: "Warehouse", href: "/inventory/inventory/" },
   ];
 
   const salesLinks = [
@@ -61,8 +61,6 @@ const Sidebar = () => {
     setActive((prevState) => ({
       ...prevState,
       selectedItem: prevState.selectedItem === title ? "" : title, // Toggle selection
-      inventory: true, // Keep the section open
-      activeLink: "", // Reset static link selection
     }));
   };
 

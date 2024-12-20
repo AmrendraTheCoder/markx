@@ -7,6 +7,7 @@ import Link from "next/link";
 import React, { useState } from "react";
 import TextInput from "@/components/FormInput/TextInput";
 import SubmitButton from "@/components/FormInput/SubmitButton";
+import TextareaInput from "@/components/FormInput/TextAreaInput";
 
 function NewCategories() {
   const {
@@ -18,15 +19,34 @@ function NewCategories() {
 
   const [loading, setLoading] = useState(false);
 
-  function onSubmit(data) {
+  async function onSubmit(data) {
     console.log(data);
-    reset();
+    setLoading(true);
+    const baseUrl = "http://localhost:3001";
+    try {
+      const response = await fetch(`${baseUrl}/api/categories`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+      if (response.ok) {
+        console.log(response);
+        setLoading(false);
+        reset();
+      }
+    } catch (error) {
+      setLoading(false);
+
+      console.log(error);
+    }
   }
 
   return (
     <div>
       {/* Header */}
-      <FormHeader title="New Category" href="#" />
+      <FormHeader title="New Category" href="/inventory/inventory/" />
       {/* Form */}
       <form
         onSubmit={handleSubmit(onSubmit)}
@@ -39,7 +59,14 @@ function NewCategories() {
             register={register}
             errors={errors}
           />
+          <TextareaInput
+            name="description"
+            label="Category Description"
+            register={register}
+            errors={errors}
+          />
         </div>
+
         <SubmitButton isLoading={loading} title="Category" />
       </form>
       {/* Footer */}

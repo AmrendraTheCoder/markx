@@ -170,8 +170,7 @@ function Items() {
   return (
     <div>
       <div className="relative">
-
-      <FixedHeader />
+        <FixedHeader />
       </div>
       <div className="grid grid-col-1 lg:grid-cols-2 px-16 py-6 gap-x-8 gap-y-8">
         {options.map((card, i) => {

@@ -15,7 +15,7 @@ function FormHeader({title, href}) {
           />
         </div>
         <Link href={href}>
-          <X className="text-slate-600 hover:text-red-400 transition duration-100 mr-3" />
+          <X className="text-slate-600 hover:text-red-400 transition duration-100 mr-12" />
         </Link>
       </div>
     </div>

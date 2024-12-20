@@ -1,3 +1,4 @@
+import UnderConstructionPage from "@/components/other-ui/UnderConstructionPage";
 import { ChevronDown } from "lucide-react";
 import React from "react";
 
@@ -17,7 +18,7 @@ function NewItem() {
       {/* Form */}
       {/* Footer */}
 
-      <h2>New Items will be created here.</h2>
+      <UnderConstructionPage />
     </div>
   );
 }

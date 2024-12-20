@@ -1,9 +1,10 @@
+import UnderConstructionPage from "@/components/other-ui/UnderConstructionPage";
 import React from "react";
 
 function Updates() {
   return (
     <div>
-      <h2>Updates</h2>
+      <UnderConstructionPage />
     </div>
   );
 }
