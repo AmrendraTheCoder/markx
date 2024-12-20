@@ -17,7 +17,6 @@ import Subscription from "./Subscription";
 const Sidebar = () => {
   const inventoryLinks = [
     { title: "Items", href: "/inventory/inventory/" },
-    { title: "Adjustments", href: "/inventory/inventory/" },
     { title: "Brands", href: "/inventory/inventory/" },
     {
       title: "Categories",

@@ -8,9 +8,8 @@ import React, { useState } from "react";
 import TextInput from "@/components/FormInput/TextInput";
 import SubmitButton from "@/components/FormInput/SubmitButton";
 import TextareaInput from "@/components/FormInput/TextAreaInput";
-import SelectInput from "@/components/FormInput/SelectInput";
 
-function NewWarehouse() {
+function NewJob() {
   const {
     register,
     handleSubmit,
@@ -18,16 +17,6 @@ function NewWarehouse() {
     formState: { errors },
   } = useForm();
 
-  const selectOptions = [
-    {
-      label: "Main",
-      value: "main",
-    },
-    {
-      label: "Branch",
-      value: "branch",
-    },
-  ];
   const [loading, setLoading] = useState(false);
 
   async function onSubmit(data) {
@@ -35,7 +24,7 @@ function NewWarehouse() {
     setLoading(true);
     const baseUrl = "http://localhost:3001";
     try {
-      const response = await fetch(`${baseUrl}/api/warehouse`, {
+      const response = await fetch(`${baseUrl}/api/jobCard`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -57,7 +46,7 @@ function NewWarehouse() {
   return (
     <div>
       {/* Header */}
-      <FormHeader title="New Warehouse" href="/inventory/inventory/" />
+      <FormHeader title="New Unit" href="/inventory/inventory/" />
       {/* Form */}
       <form
         onSubmit={handleSubmit(onSubmit)}
@@ -65,38 +54,26 @@ function NewWarehouse() {
       >
         <div className="grid gap-4 sm:grid-cols-2 sm:gap-6">
           <TextInput
-            label="Warehouse Title"
+            label="Unit Title"
             name="title"
             register={register}
             errors={errors}
             className="w-full"
           />
           <TextInput
-            label="Warehouse Location"
-            name="location"
+            label="Unit Abbreviation"
+            name="abbreviation"
             register={register}
             errors={errors}
             className="w-full"
           />
-          <TextareaInput
-            label="Warehouse Description"
-            name="description"
-            register={register}
-            errors={errors}
-          />
-          <SelectInput
-            register={register}
-            label="Select the Warehouse type"
-            name="type"
-            options={selectOptions}
-          />
         </div>
 
-        <SubmitButton isLoading={loading} title="Warehouse" />
+        <SubmitButton isLoading={loading} title="Unit" />
       </form>
       {/* Footer */}
     </div>
   );
 }
 
-export default NewWarehouse;
+export default NewJob;
