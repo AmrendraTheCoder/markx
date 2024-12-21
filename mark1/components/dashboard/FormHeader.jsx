@@ -8,7 +8,7 @@ function FormHeader({title, href}) {
     <div>
       <div className="flex py-6 pl-4 justify-between items-center bg-white border-b shadow-sm">
         <div className="flex items-center justify-center gap-1">
-          <button className="pl-2 text-2xl font-semibold">{title}</button>
+          <button className="pl-4 text-2xl font-semibold">{title}</button>
           <ChevronDown
             strokeWidth="3px"
             className="text-blue-500 font-semibold w-5 h-5"
