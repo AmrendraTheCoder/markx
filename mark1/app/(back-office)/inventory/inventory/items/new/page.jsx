@@ -2,7 +2,6 @@
 import FormHeader from "@/components/dashboard/FormHeader";
 import { ChevronDown, Plus, X } from "lucide-react";
 import { useForm } from "react-hook-form";
-
 import Link from "next/link";
 import React, { useState } from "react";
 import TextInput from "@/components/FormInput/TextInput";
@@ -18,67 +17,31 @@ function NewItem() {
     formState: { errors },
   } = useForm();
 
-  const catergoryTypes = [
-    {
-      label: "Electronics",
-      value: "habffajn009938masfd",
-    },
-    {
-      label: "Clothes",
-      value: "advavca387467dsn",
-    },
+  const categoryTypes = [
+    { label: "Electronics", value: "habffajn009938masfd" },
+    { label: "Clothes", value: "advavca387467dsn" },
   ];
 
   const unitsType = [
-    {
-      label: "Kg",
-      value: "habffajn009938masfd",
-    },
-    {
-      label: "Pcs",
-      value: "advavca387467dsn",
-    },
+    { label: "Kg", value: "habffajn009938masfd" },
+    { label: "Pcs", value: "advavca387467dsn" },
   ];
 
   const brandType = [
-    {
-      label: "HP",
-      value: "habffajn009938masfd",
-    },
-    {
-      label: "Dell",
-      value: "advavca387467dsn",
-    },
+    { label: "HP", value: "habffajn009938masfd" },
+    { label: "Dell", value: "advavca387467dsn" },
   ];
 
   const warehouseList = [
-    {
-      label: "Lucknow",
-      value: "habffajn009938masfd",
-    },
-    {
-      label: "Delhi",
-      value: "advavca387467dsn",
-    },
-    {
-      label: "Mumbai",
-      value: "advavca387467dsn",
-    },
+    { label: "Lucknow", value: "habffajn009938masfd" },
+    { label: "Delhi", value: "advavca387467dsn" },
+    { label: "Mumbai", value: "advavca387467dsn" },
   ];
 
   const supplierList = [
-    {
-      label: "Lucknow",
-      value: "habffajn009938masfd",
-    },
-    {
-      label: "Delhi",
-      value: "advavca387467dsn",
-    },
-    {
-      label: "Mumbai",
-      value: "advavca387467dsn",
-    },
+    { label: "Lucknow", value: "habffajn009938masfd" },
+    { label: "Delhi", value: "advavca387467dsn" },
+    { label: "Mumbai", value: "advavca387467dsn" },
   ];
 
   const [loading, setLoading] = useState(false);
@@ -95,15 +58,17 @@ function NewItem() {
         },
         body: JSON.stringify(data),
       });
+
       if (response.ok) {
         console.log(response);
-        setLoading(false);
-        reset();
+        reset(); // reset the form after successful submission
+      } else {
+        console.error("Failed to submit data:", response);
       }
     } catch (error) {
-      setLoading(false);
-
-      console.log(error);
+      console.log("Error occurred while submitting:", error);
+    } finally {
+      setLoading(false); // always stop loading after the submission attempt
     }
   }
 
@@ -129,7 +94,7 @@ function NewItem() {
             label="Select the Item Category"
             register={register}
             className="w-full"
-            options={catergoryTypes}
+            options={categoryTypes}
           />
           <TextInput
             label="Item SKU"
@@ -143,7 +108,6 @@ function NewItem() {
             name="barcode"
             register={register}
             errors={errors}
-            // isRequired= 'false'
             className="w-full"
           />
           <TextInput
@@ -151,7 +115,6 @@ function NewItem() {
             name="qty"
             register={register}
             errors={errors}
-            // isRequired= 'false'
             className="w-full"
           />
           <SelectInput
@@ -174,7 +137,6 @@ function NewItem() {
             register={register}
             errors={errors}
             type="number"
-            // isRequired= 'false'
             className="w-full"
           />
           <TextInput
@@ -183,7 +145,6 @@ function NewItem() {
             register={register}
             errors={errors}
             type="number"
-            // isRequired= 'false'
             className="w-full"
           />
           <SelectInput
@@ -199,7 +160,6 @@ function NewItem() {
             type="number"
             register={register}
             errors={errors}
-            // isRequired= 'false'
             className="w-full"
           />
           <SelectInput
@@ -215,7 +175,6 @@ function NewItem() {
             register={register}
             errors={errors}
             type="number"
-            // isRequired= 'false'
             className="w-full"
           />
           <TextInput
@@ -223,16 +182,14 @@ function NewItem() {
             name="itemDimension"
             register={register}
             errors={errors}
-            // isRequired= 'false'
             className="w-full"
           />
           <TextInput
             label="Item Tax Rate in %"
             name="taxRate"
-            type="Number"
+            type="number"
             register={register}
             errors={errors}
-            // isRequired= 'false'
             className="w-full"
           />
           <TextareaInput
@@ -247,9 +204,8 @@ function NewItem() {
             register={register}
             errors={errors}
           />
+          <SubmitButton isLoading={loading} title="Item" />
         </div>
-
-        <SubmitButton isLoading={loading} title="Item" />
       </form>
       {/* Footer */}
     </div>
