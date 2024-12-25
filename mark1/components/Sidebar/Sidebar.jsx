@@ -24,6 +24,8 @@ const Sidebar = () => {
     },
     { title: "Units", href: "/inventory/inventory/" },
     { title: "Warehouse", href: "/inventory/inventory/" },
+    { title: "Inventory Adjustments", href: "/inventory/inventory/" },
+
   ];
 
   const salesLinks = [
