@@ -39,7 +39,7 @@ function HomeNavbar() {
             <span className="text-sm text-slate-700 pt-0">Lucknow</span>
           </div>
           <div className="flex flex-col text-right">
-            <p className="text-xs">Mark Industry India Helpline: 7054107107</p>
+            <p className="text-xs">Mark Industry India Helpline: +91 9988982341</p>
             <span className="text-xs">Mon - Fri • 9:00 AM - 7:00 PM</span>
           </div>
         </div>
