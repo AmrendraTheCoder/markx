@@ -1,13 +1,9 @@
 "use client";
 import FormHeader from "@/components/dashboard/FormHeader";
-import { ChevronDown, Plus, X } from "lucide-react";
 import { useForm } from "react-hook-form";
-
-import Link from "next/link";
 import React, { useState } from "react";
 import TextInput from "@/components/FormInput/TextInput";
 import SubmitButton from "@/components/FormInput/SubmitButton";
-import TextareaInput from "@/components/FormInput/TextAreaInput";
 import toast from "react-hot-toast";
 
 function NewBrand() {
@@ -56,11 +52,11 @@ function NewBrand() {
       >
         <div className="grid gap-4 sm:grid-cols-2 sm:gap-6">
           <TextInput
-            label="Brand Title"
             name="title"
+            label="Brand Title"
+            className="w-full"
             register={register}
             errors={errors}
-            className="w-full"
           />
         </div>
 

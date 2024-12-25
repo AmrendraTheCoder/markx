@@ -1,13 +1,10 @@
 "use client";
 import FormHeader from "@/components/dashboard/FormHeader";
-import { ChevronDown, Plus, X } from "lucide-react";
 import { useForm } from "react-hook-form";
-
-import Link from "next/link";
 import React, { useState } from "react";
 import TextInput from "@/components/FormInput/TextInput";
 import SubmitButton from "@/components/FormInput/SubmitButton";
-import TextareaInput from "@/components/FormInput/TextAreaInput";
+import toast from "react-hot-toast";
 
 function NewUnit() {
   const {
@@ -33,6 +30,7 @@ function NewUnit() {
       });
       if (response.ok) {
         console.log(response);
+        toast.success("New Unit Created Successfully");
         setLoading(false);
         reset();
       }
@@ -54,18 +52,18 @@ function NewUnit() {
       >
         <div className="grid gap-4 sm:grid-cols-2 sm:gap-6">
           <TextInput
-            label="Unit Title"
             name="title"
+            label="Unit Title"
+            className="w-full"
             register={register}
             errors={errors}
-            className="w-full"
           />
           <TextInput
-            label="Unit Abbreviation"
             name="abbreviation"
+            label="Unit Abbreviation"
+            className="w-full"
             register={register}
             errors={errors}
-            className="w-full"
           />
         </div>
 
