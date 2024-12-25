@@ -62,7 +62,7 @@ model Warehouse {
   title       String
   location    String?
   description String?
-  type        String
+  warehouseType        String
 }
 
 // model AddStockAdjustment {

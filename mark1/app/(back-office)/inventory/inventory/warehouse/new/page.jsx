@@ -9,6 +9,7 @@ import TextInput from "@/components/FormInput/TextInput";
 import SubmitButton from "@/components/FormInput/SubmitButton";
 import TextareaInput from "@/components/FormInput/TextAreaInput";
 import SelectInput from "@/components/FormInput/SelectInput";
+import toast from "react-hot-toast";
 
 function NewWarehouse() {
   const {
@@ -45,6 +46,7 @@ function NewWarehouse() {
       if (response.ok) {
         console.log(response);
         setLoading(false);
+        toast.success("New Warehouse Created Successfully");
         reset();
       }
     } catch (error) {
@@ -88,7 +90,7 @@ function NewWarehouse() {
             register={register}
             label="Select the Warehouse type"
             name="type"
-            options={selectOptions}
+            options={selectOptions} 
           />
         </div>
 
