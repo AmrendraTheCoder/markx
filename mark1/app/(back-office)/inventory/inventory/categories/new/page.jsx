@@ -1,9 +1,6 @@
 "use client";
 import FormHeader from "@/components/dashboard/FormHeader";
-import { ChevronDown, Plus, X } from "lucide-react";
 import { useForm } from "react-hook-form";
-
-import Link from "next/link";
 import React, { useState } from "react";
 import TextInput from "@/components/FormInput/TextInput";
 import SubmitButton from "@/components/FormInput/SubmitButton";
@@ -54,8 +51,8 @@ function NewCategories() {
       >
         <div className="grid gap-4 sm:grid-cols-2 sm:gap-6">
           <TextInput
-            label="Category Title"
             name="title"
+            label="Category Title"
             register={register}
             errors={errors}
           />
