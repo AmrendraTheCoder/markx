@@ -10,7 +10,7 @@ export async function POST(request) {
     const category = await db.category.create({
       data: {
         title,
-        description,
+        description, 
       },
     });
     console.log("Created Category:", category);

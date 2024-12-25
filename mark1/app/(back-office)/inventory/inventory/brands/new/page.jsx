@@ -8,6 +8,7 @@ import React, { useState } from "react";
 import TextInput from "@/components/FormInput/TextInput";
 import SubmitButton from "@/components/FormInput/SubmitButton";
 import TextareaInput from "@/components/FormInput/TextAreaInput";
+import toast from "react-hot-toast";
 
 function NewBrand() {
   const {
@@ -34,6 +35,7 @@ function NewBrand() {
       if (response.ok) {
         console.log(response);
         setLoading(false);
+        toast.success("New Brand Created Successfully");
         reset();
       }
     } catch (error) {
