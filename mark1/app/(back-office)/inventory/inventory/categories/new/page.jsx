@@ -5,6 +5,7 @@ import React, { useState } from "react";
 import TextInput from "@/components/FormInput/TextInput";
 import SubmitButton from "@/components/FormInput/SubmitButton";
 import TextareaInput from "@/components/FormInput/TextAreaInput";
+import toast from "react-hot-toast";
 
 function NewCategories() {
   const {
@@ -29,8 +30,9 @@ function NewCategories() {
         body: JSON.stringify(data),
       });
       if (response.ok) {
-        console.log(response);
+        // console.log(response);
         setLoading(false);
+        toast.success('Category Created Successfully!')
         reset();
       }
     } catch (error) {
